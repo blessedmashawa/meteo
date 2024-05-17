@@ -1,65 +1,52 @@
 <!DOCTYPE html>
- <html lang="en">
-   <head>
-     <meta charset="UTF-8" />
-     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap" rel="stylesheet">
- 
-     <link rel="stylesheet" href="src/design.css" />
-     <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
- 
-     <title>blessedmashawaAppApp</title>
- 
-   </head>
-   <body>
-     <div class="page">
-     <main>
-       <header>
-         <span class="top"> 
-           <p class="date">
-           <br>
-         15 April
-       </p>
-         <form id="search">
-           <input
-             type="Search"
-             placeholder="Enter A City"
-             required
-             minlength="3"
-             id="searchInput"
-             class="searchInput"
-           />
-           <input type="submit" value="Search" class="searchButton"/>
-         </form>
-       </span>
-        
-       </header>
-       <span class="result">
-       <div class="place">
-         <h1 id="city"></h1>
-       
-       <div id="day">Monday <span id="time" class="time">13:17</span>, <strong id="description">Scattered Clouds</strong></div>
-       <div class="weatherDetails">
-       </div>
-       <span class="forecast"> Humidity: <strong id="humidity">72% </strong>| Wind: <strong id="wind-speed">2.6km/h</strong> </span>
-     </div>
-     
-       <div id="degrees-today">
-         <div id="emoji" class="emoji">🌤</div>
-         <div id="temperature" class="temprature"></div>
-         <div class="celsius">℃</div>
-       </div>
-     
-   <span class="highlow">H:32℃ L:9℃</span>
-       
-     </main>
-     <br>
-     <hr />
-   
-     </span>
-     <footer>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <title>Meteo App</title>
+  </head>
+  <body>
+    <div class="weather-app">
+      <header>
+        <form class="search-form" id="search-form">
+          <input
+            type="search"
+            placeholder="Enter a city.."
+            required
+            id="search-form-input"
+            class="search-form-input"
+          />
+          <input type="submit" value="Search" class="search-form-button" />
+        </form>
+      </header>
+      <main>
+        <div class="weather-app-data">
+          <div>
+            <h1 class="weather-app-city" id="city"></h1>
+            <p class="weather-app-details">
+              <span id="time"></span>,
+              <span id="description"></span>
+              <br />
+              Humidity: <strong id="humidity"></strong>, Wind:
+              <strong id="wind-speed"></strong>
+            </p>
+          </div>
+          <div class="weather-app-temperature-container">
+            <img id="icon" alt="Weather Icon" class="weather-app-icon" />
+            <div class="weather-app-temperature" id="temperature"></div>
+            <div class="weatehr-app-unit">°C</div>
+          </div>
+        </div>
+      </main>
+<footer>
        This Project is coded by
        <a href="https://github.com/blessedmashawa" target="_blank">blessed mashawa</a> and
        is hosted on

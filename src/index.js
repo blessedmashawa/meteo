@@ -16,6 +16,8 @@ function refreshWeather(response) {
   windSpeedElement.innerHTML = `${response.data.wind.speed}km/h`;
   temperatureElement.innerHTML = Math.round(temperature);
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
+
+  getForecast (response.data.city);
 }
 
 function formatDate(date) {
@@ -39,6 +41,11 @@ function formatDate(date) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function formatDay(timestamp){
+let date= newDate (timestamp*1000);
+  let days=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+  return days [date.getDay()];
+
 function searchCity(city) {
   let apiKey = "b2a5adcct04b33178913oc335f405433";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
@@ -51,7 +58,20 @@ function handleSearchSubmit(event) {
 
   searchCity(searchInput.value);
 }
-
+response.data.daily.forEach(function(day) {
+  if(index <5){
+forecastHtml=
+  forecastHtml+
+<div class="weather-forecast-day">
+<div class="weather-forecast-date">${formatDay(day.time)}/div>
+<div class="weather-forecast-icon"><span><a href="https://emojipedia.org/sun"></span></div>
+  <div class="weather-forecast-temperatures">
+  <div class="weather-forecast-temperature"><strong>${Math-round(day.temperature.maximum)}°<strong></div>
+    <div class="weather-forecast-temperature">${Math.round(day.temperature.minimum)}°</div>
+  });
+  let forecastElement=document.querySelector("#forecast");
+  forecastElement.innerHTML=forecastHtml;
+}
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
